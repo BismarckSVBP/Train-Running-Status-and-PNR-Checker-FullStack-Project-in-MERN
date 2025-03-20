@@ -430,3 +430,231 @@ export const getCoachArrangement = async (
   }
 };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//to shoh dummy data 
+
+import { PNRDetails } from './types';
+
+// Mock PNR data with different status scenarios
+const mockPnrData: Record<string, PNRDetails> = {
+  '1234567890': {
+    pnrNumber: '1234567890',
+    trainNumber: '12301',
+    trainName: 'Howrah Rajdhani Express',
+    from: 'New Delhi (NDLS)',
+    to: 'Howrah (HWH)',
+    boardingPoint: 'New Delhi (NDLS)',
+    reservationUpTo: 'Howrah (HWH)',
+    dateOfJourney: '2023-10-15',
+    departureTime: '17:00',
+    arrivalTime: '09:45',
+    bookingClass: '3A',
+    chartPrepared: true,
+    passengers: [
+      {
+        number: 1,
+        bookingStatus: 'CNF',
+        currentStatus: 'CNF/B2/34/LB',
+        coachNumber: 'B2',
+        seatNumber: '34',
+        seatType: 'Lower Berth'
+      },
+      {
+        number: 2,
+        bookingStatus: 'CNF',
+        currentStatus: 'CNF/B2/36/UB',
+        coachNumber: 'B2',
+        seatNumber: '36',
+        seatType: 'Upper Berth'
+      }
+    ]
+  },
+  '9876543210': {
+    pnrNumber: '9876543210',
+    trainNumber: '12302',
+    trainName: 'New Delhi Rajdhani Express',
+    from: 'Howrah (HWH)',
+    to: 'New Delhi (NDLS)',
+    boardingPoint: 'Howrah (HWH)',
+    reservationUpTo: 'New Delhi (NDLS)',
+    dateOfJourney: '2023-10-16',
+    departureTime: '14:05',
+    arrivalTime: '06:10',
+    bookingClass: 'SL',
+    chartPrepared: false,
+    passengers: [
+      {
+        number: 1,
+        bookingStatus: 'WL/12',
+        currentStatus: 'WL/8',
+      }
+    ],
+    waitingType: 'GNWL',
+    confirmationProbability: 68
+  },
+  '5678901234': {
+    pnrNumber: '5678901234',
+    trainNumber: '12951',
+    trainName: 'Mumbai Rajdhani',
+    from: 'Mumbai Central (MMCT)',
+    to: 'New Delhi (NDLS)',
+    boardingPoint: 'Mumbai Central (MMCT)',
+    reservationUpTo: 'New Delhi (NDLS)',
+    dateOfJourney: '2023-10-18',
+    departureTime: '16:35',
+    arrivalTime: '08:15',
+    bookingClass: '2A',
+    chartPrepared: true,
+    passengers: [
+      {
+        number: 1,
+        bookingStatus: 'RAC/15',
+        currentStatus: 'RAC/8/SL',
+        coachNumber: 'B1',
+        seatType: 'Side Lower'
+      }
+    ],
+    confirmationProbability: 92
+  },
+  '1122334455': {
+    pnrNumber: '1122334455',
+    trainNumber: '12309',
+    trainName: 'Rajendra Nagar Rajdhani Express',
+    from: 'Rajendra Nagar (RJPB)',
+    to: 'New Delhi (NDLS)',
+    boardingPoint: 'Rajendra Nagar (RJPB)',
+    reservationUpTo: 'New Delhi (NDLS)',
+    dateOfJourney: '2023-10-20',
+    departureTime: '12:45',
+    arrivalTime: '07:30',
+    bookingClass: '3A',
+    chartPrepared: true,
+    passengers: [
+      {
+        number: 1,
+        bookingStatus: 'CNF',
+        currentStatus: 'CNF/B3/22/SU',
+        coachNumber: 'B3',
+        seatNumber: '22',
+        seatType: 'Side Upper'
+      },
+      {
+        number: 2,
+        bookingStatus: 'RAC/5',
+        currentStatus: 'CNF/B3/24/LB',
+        coachNumber: 'B3',
+        seatNumber: '24',
+        seatType: 'Lower Berth'
+      },
+      {
+        number: 3,
+        bookingStatus: 'WL/3',
+        currentStatus: 'WL/1',
+      }
+    ],
+    waitingType: 'GNWL',
+    confirmationProbability: 45
+  },
+  '9988776655': {
+    pnrNumber: '9988776655',
+    trainNumber: '12952',
+    trainName: 'New Delhi Rajdhani',
+    from: 'New Delhi (NDLS)',
+    to: 'Mumbai Central (MMCT)',
+    boardingPoint: 'New Delhi (NDLS)',
+    reservationUpTo: 'Mumbai Central (MMCT)',
+    dateOfJourney: '2023-10-25',
+    departureTime: '17:15',
+    arrivalTime: '09:55',
+    bookingClass: '1A',
+    chartPrepared: false,
+    passengers: [
+      {
+        number: 1,
+        bookingStatus: 'TQWL/8',
+        currentStatus: 'TQWL/4',
+      }
+    ],
+    waitingType: 'TQWL',
+    confirmationProbability: 35
+  },
+  '4455667788': {
+    pnrNumber: '4455667788',
+    trainNumber: '12305',
+    trainName: 'Kolkata Rajdhani Express',
+    from: 'New Delhi (NDLS)',
+    to: 'Howrah (HWH)',
+    boardingPoint: 'New Delhi (NDLS)',
+    reservationUpTo: 'Howrah (HWH)',
+    dateOfJourney: '2023-10-30',
+    departureTime: '16:55',
+    arrivalTime: '09:45',
+    bookingClass: '2A',
+    chartPrepared: true,
+    passengers: [
+      {
+        number: 1,
+        bookingStatus: 'RLWL/6',
+        currentStatus: 'RLWL/2',
+      }
+    ],
+    waitingType: 'RLWL',
+    confirmationProbability: 25
+  },
+  '7788990011': {
+    pnrNumber: '7788990011',
+    trainNumber: '22222',
+    trainName: 'INVALID TRAIN',
+    from: 'XXX',
+    to: 'YYY',
+    boardingPoint: 'XXX',
+    reservationUpTo: 'YYY',
+    dateOfJourney: '2023-11-01',
+    departureTime: '00:00',
+    arrivalTime: '00:00',
+    bookingClass: 'SL',
+    chartPrepared: false,
+    passengers: [],
+    waitingType: 'GNWL',
+    confirmationProbability: 0
+  }
+};
+export const getPnrStatus = async (pnrNumber: string): Promise<PNRDetails | null> => {
+  // In a real app, this would be an API call
+  console.log(`Checking PNR status for: ${pnrNumber}`);
+  
+  // Using mock data for now
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      if (pnrNumber === '0000000000') {
+        // Simulate invalid PNR
+        resolve(null);
+      } else if (pnrNumber === '7788990011') {
+        // Simulate cancelled train
+        const result = { ...mockPnrData[pnrNumber] };
+        result.trainName = 'CANCELLED - ' + result.trainName;
+        resolve(result);
+      } else {
+        const result = mockPnrData[pnrNumber] || null;
+        resolve(result);
+      }
+    }, 1500);
+  });
+};
