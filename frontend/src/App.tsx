@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Settings from "./pages/Settings";
@@ -21,23 +21,26 @@ const queryClient = new QueryClient({
   },
 });
 
+
+const router = createBrowserRouter(
+  [
+    { path: "/", element: <Index /> },
+    { path: "/settings", element: <Settings /> },
+    { path: "/pnr-status", element: <PNRStatus /> },
+    { path: "/history", element: <History /> },
+    { path: "/about", element: <About /> },
+    { path: "/contact-us", element: <ContactUsPage /> },
+    { path: "/coach-layout", element: <CoachLayout /> },
+    { path: "*", element: <NotFound /> },
+  ],
+);
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner position="top-center" />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/pnr-status" element={<PNRStatus />} />
-          <Route path="/history" element={<History />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact-us" element={<ContactUsPage />} />
-         <Route path="/coach-layout" element={<CoachLayout />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <RouterProvider router={router} />
     </TooltipProvider>
   </QueryClientProvider>
 );
