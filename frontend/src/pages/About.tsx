@@ -16,7 +16,7 @@ const About = () => {
               <CardContent className="p-6 text-center">
                 <div className="w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full">
                   <img
-                    src="../../public/picture2.jpg"
+                    src="/picture2.jpg"
                     alt="Abhay's Picture"
                     className="w-full h-full object-cover"
                   />
