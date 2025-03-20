@@ -3,7 +3,7 @@ import {
   TrainRoute,
   Station,
   RecentSearch,
-  PNRDetails,
+  // PNRDetails,
   BackendCoachResponse,
   PNRErrorResponse,
   TrainStatusLtsData,
@@ -266,53 +266,53 @@ export const clearRecentSearches = (): void => {
   }
 };
 
-export const getPnrStatus = async (
-  pnrNumber: string
-): Promise<{ data: PNRDetails | null; error: PNRErrorResponse | null }> => {
-  try {
-    if (!pnrNumber || pnrNumber.length !== 10) {
-      return {
-        data: null,
-        error: {
-          errorcode: "100",
-          errormsg: "Invalid PNR Format",
-          detailedmsg: "Please enter a valid 10-digit PNR number",
-        },
-      };
-    }
+// export const getPnrStatus = async (
+//   pnrNumber: string
+// ): Promise<{ data: PNRDetails | null; error: PNRErrorResponse | null }> => {
+//   try {
+//     if (!pnrNumber || pnrNumber.length !== 10) {
+//       return {
+//         data: null,
+//         error: {
+//           errorcode: "100",
+//           errormsg: "Invalid PNR Format",
+//           detailedmsg: "Please enter a valid 10-digit PNR number",
+//         },
+//       };
+//     }
 
 
-    // // Check if we have mock data for this PNR
-    // const mockData = mockPnrData[pnrNumber];
-    const response = await axios.post(`${API_BASE_URL}getPNRData`, {
-      pnr_number: pnrNumber,
-    });
-    if (!response || !response.data) {
-      throw new Error("No data received from backend");
-    }
+//     // // Check if we have mock data for this PNR
+//     // const mockData = mockPnrData[pnrNumber];
+//     const response = await axios.post(`${API_BASE_URL}getPNRData`, {
+//       pnr_number: pnrNumber,
+//     });
+//     if (!response || !response.data) {
+//       throw new Error("No data received from backend");
+//     }
 
-    //console.log("API response received:", response.data);
-    const mockData = response.data;
-    console.log("mockdatahoonmc", mockData);
-    if (mockData) {
-      return { data: mockData.response, error: null };
-    }
-   else{
-     throw new Error("No data received from backend");
-   }
-  } catch (error) {
-    console.error("Error in getPnrStatus:", error);
-    return {
-      data: null,
-      error: {
-        errorcode: "500",
-        errormsg: "Could not process your request. Please try again later.",
-        detailedmsg:
-          "The PNR Number you've entered is either wrong or has been flushed.",
-      },
-    };
-  }
-};
+//     //console.log("API response received:", response.data);
+//     const mockData = response.data;
+//     console.log("mockdatahoonmc", mockData);
+//     if (mockData) {
+//       return { data: mockData.response, error: null };
+//     }
+//    else{
+//      throw new Error("No data received from backend");
+//    }
+//   } catch (error) {
+//     console.error("Error in getPnrStatus:", error);
+//     return {
+//       data: null,
+//       error: {
+//         errorcode: "500",
+//         errormsg: "Could not process your request. Please try again later.",
+//         detailedmsg:
+//           "The PNR Number you've entered is either wrong or has been flushed.",
+//       },
+//     };
+//   }
+// };
 
 
 
