@@ -94,7 +94,7 @@ const About = () => {
                     <line x1="2" x2="22" y1="10" y2="10"></line>
                   </svg>
                 </div>
-                <h3 className="font-medium">PNR Status</h3>
+                <h3 className="font-medium">PNR Status(Under-Development)</h3>
                 <p className="text-sm text-muted-foreground">
                   Check your PNR status instantly and get detailed information
                   about your booking.
