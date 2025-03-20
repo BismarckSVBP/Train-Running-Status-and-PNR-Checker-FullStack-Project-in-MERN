@@ -1,16 +1,16 @@
 
-export interface Passenger {
-  name: string;
-  number: number;
-  currentStatus: string;
-  bookingStatus: string;
-  coachNumber?: string;
-  seatNumber?: string;
-  seatType?: string;
-  currentSeatDetails:string;
-  berthType:string;
-  confirmProb:number;
-}
+// export interface Passenger {
+//   name: string;
+//   number: number;
+//   currentStatus: string;
+//   bookingStatus: string;
+//   coachNumber?: string;
+//   seatNumber?: string;
+//   seatType?: string;
+//   currentSeatDetails:string;
+//   berthType:string;
+//   confirmProb:number;
+// }
 
 
 export interface BackendPassenger {
@@ -218,15 +218,15 @@ export type ThemeMode =
 
 // New PNR Status interfaces
 
-export type BookingClass =
-  | "SL"
-  | "3A"
-  | "2A"
-  | "1A"
-  | "CC"
-  | "EC"
-  | "2S"
-  | "GN";
+// export type BookingClass =
+//   | "SL"
+//   | "3A"
+//   | "2A"
+//   | "1A"
+//   | "CC"
+//   | "EC"
+//   | "2S"
+//   | "GN";
 export interface PNRPassenger {
   name: string;
   currentStatus: string;
@@ -273,49 +273,49 @@ export interface PNRDecode {
   data: DecodeFact[];
 }
 
-export interface PNRDetails {
-  pnrNo: string;
-  overallStatus: string;
-  trainNumber: string;
-  trainName: string;
-  duration: number;
-  journeyClass: string;
-  journeyClassName: string;
-  departureTime: string;
-  arrivalTime: string;
-  srcName: string;
-  dstName: string;
-  srcCode: string;
-  dstCode: string;
-  srcPfNo: string;
-  dstPfNo: string;
-  chartStatus: string;
-  chartPrepMsg: string;
-  pnrLastUpdated: string;
-  quota: string;
-  quotaName: string;
-  passengers: PNRPassenger[];
-  trainCancelled: string;
-  boardingStationData: BoardingStationData;
-  sourceDoj: string;
-  orderUuid: string;
-  itemUuid: string;
-  postSalesSG: any;
-  bookReturn: BookReturn;
-  noteOrCoachPos: string;
-  decode: PNRDecode;
-  disclaimerMsg: string;
-  isSubscribed: boolean;
-  faqLinkTxt: string;
-  isCoachPosAvl: boolean;
-  callLTSAPI: boolean;
-  screenNo: number;
-  subIds: any;
-  deepLink: string;
-  risDeepLink: string;
-  risWhatsAppText: string;
-  isBooker: boolean;
-}
+// export interface PNRDetails {
+//   pnrNo: string;
+//   overallStatus: string;
+//   trainNumber: string;
+//   trainName: string;
+//   duration: number;
+//   journeyClass: string;
+//   journeyClassName: string;
+//   departureTime: string;
+//   arrivalTime: string;
+//   srcName: string;
+//   dstName: string;
+//   srcCode: string;
+//   dstCode: string;
+//   srcPfNo: string;
+//   dstPfNo: string;
+//   chartStatus: string;
+//   chartPrepMsg: string;
+//   pnrLastUpdated: string;
+//   quota: string;
+//   quotaName: string;
+//   passengers: PNRPassenger[];
+//   trainCancelled: string;
+//   boardingStationData: BoardingStationData;
+//   sourceDoj: string;
+//   orderUuid: string;
+//   itemUuid: string;
+//   postSalesSG: any;
+//   bookReturn: BookReturn;
+//   noteOrCoachPos: string;
+//   decode: PNRDecode;
+//   disclaimerMsg: string;
+//   isSubscribed: boolean;
+//   faqLinkTxt: string;
+//   isCoachPosAvl: boolean;
+//   callLTSAPI: boolean;
+//   screenNo: number;
+//   subIds: any;
+//   deepLink: string;
+//   risDeepLink: string;
+//   risWhatsAppText: string;
+//   isBooker: boolean;
+// }
 
 export interface PNRErrorResponse {
   errorcode: string;
@@ -345,4 +345,49 @@ export interface BackendCoachResponse {
   Coaches: BackendCoach[];
   Status: string;
   LastUpdate: string;
+}
+
+
+
+
+//to show dummy pnr-details
+
+
+
+
+export type BookingClass = 
+  | 'SL' 
+  | '3A' 
+  | '2A' 
+  | '1A' 
+  | 'CC' 
+  | 'EC' 
+  | '2S' 
+  | 'GN';
+
+export interface Passenger {
+  number: number;
+  currentStatus: string;
+  bookingStatus: string;
+  coachNumber?: string;
+  seatNumber?: string;
+  seatType?: string;
+}
+
+export interface PNRDetails {
+  pnrNumber: string;
+  trainNumber: string;
+  trainName: string;
+  from: string;
+  to: string;
+  boardingPoint: string;
+  reservationUpTo: string;
+  dateOfJourney: string;
+  departureTime: string;
+  arrivalTime: string;
+  bookingClass: BookingClass;
+  chartPrepared: boolean;
+  passengers: Passenger[];
+  confirmationProbability?: number;
+  waitingType?: 'GNWL' | 'RLWL' | 'TQWL' | 'PQWL';
 }
