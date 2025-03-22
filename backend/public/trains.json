@@ -113799,5 +113799,75 @@
       "SSB",
       "NDLS"
     ]
+  },
+  "15005": {
+    "Train_name": "RAPTI GANGA EXPRESS",
+    "From_station": "GORAKHPUR JN",
+    "To_station": "DEHRADUN",
+    "Pair": "15006",
+    "Duration": "17:00",
+    "Distance": 815,
+    "Runs_on": {
+      "mon": 0,
+      "tue": 0,
+      "wed": 1,
+      "thu": 0,
+      "fri": 1,
+      "sat": 0,
+      "sun": 0
+    },
+    "Stations": [
+      "GKP",
+      "KLD",
+      "BST",
+      "MUR",
+      "GD",
+      "BBK",
+      "LKO",
+      "HRI",
+      "SPN",
+      "BE",
+      "RMU",
+      "MB",
+      "NBD",
+      "LRJ",
+      "HW",
+      "DDN"
+    ]
+  },
+  "15006": {
+    "Train_name": "RAPTI GANGA EXPRESS",
+    "From_station": "DEHRADUN",
+    "To_station": "GORAKHPUR JN",
+    "Pair": "15005",
+    "Duration": "16:40",
+    "Distance": 815,
+    "Runs_on": {
+      "mon": 0,
+      "tue": 1,
+      "wed": 0,
+      "thu": 1,
+      "fri": 0,
+      "sat": 0,
+      "sun": 0
+    },
+    "Stations": [
+      "DDN",
+      "HW",
+      "LRJ",
+      "NBD",
+      "MB",
+      "RMU",
+      "BE",
+      "SPN",
+      "HRI",
+      "LKO",
+      "BBK",
+      "GD",
+      "MUR",
+      "BST",
+      "KLD",
+      "GKP"
+    ]
   }
 }
